@@ -52,7 +52,16 @@ topMenuEl.classList.add('flex-around');
 //     topMenuEl.appendChild(newAElement);
 //     }
 
+//Previous Array from last lab update to new version below in Task 5. 
+// var menuLinks = [
+//     {text: 'about', href: '/about'},
+//     {text: 'catalog', href: '/catalog'},
+//     {text: 'orders', href: '/orders'},
+//     {text: 'account', href: '/account'},
+//   ];
 
+// Task 5.0
+// Update the menuLinksarray in script.js to this:
 var menuLinks = [
   {text: 'about', href: '/about'},
   {text: 'catalog', href: '#', subLinks: [
@@ -108,3 +117,4 @@ subMenuEl.style.position = 'absolute';
 // Task 4.5
 // Set the CSS topproperty of subMenuElto the value of 0.
 subMenuEl.style.top = '0';
+
