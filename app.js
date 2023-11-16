@@ -118,3 +118,56 @@ subMenuEl.style.position = 'absolute';
 // Set the CSS topproperty of subMenuElto the value of 0.
 subMenuEl.style.top = '0';
 
+// Task 5.1
+//Select and cache the all of the <a>elements inside of topMenuElin a variable named topMenuLinks.
+// Declare a global showingSubMenuvariable and initialize it to false;
+var topMenuLinks = topMenuEl.querySelectorAll('li > a');
+var showingSubMenu = false;
+
+// Task 5.2
+// Attach a delegated 'click' event listener to topMenuEl.
+// The first line of code of the event listener function should call the event object's preventDefault()method.
+// The second line of code function should immediately return if the element clicked was not an <a>element.
+// console.logthe content of the <a>to verify the handler is working.
+topMenuEl.addEventListener('click', function(event) {
+  event.preventDefault();
+  if (event.target.tagName !== "A") {
+    return;
+}
+console.log(event.target.textContent);
+
+
+//Task 5.3
+// Next in the event listener, if the clicked <a>link has a class of active:
+// Remove the activeclass from the clicked <a>element.
+// Set the showingSubMenuto false.
+// Set the CSS topproperty of subMenuElto 0.
+// returnto exit the handler.
+
+if (event.target.classList.contains('active')) {
+  event.target.classList.remove('active');
+  showingSubMenu = false;
+  subMenuEl.style.top = '0';
+  return;
+}
+
+
+//Task 5.4
+// Next, the event listener should remove a class name of activefrom each <a>element in topMenuLinks- whether the activeclass exists or not.
+// Hint: Removing a non-existent class from an element does not cause an error, so just remove it!
+topMenuLinks.forEach(function(link) {
+  link.classList.remove('active');
+});
+
+
+// Task 5.5
+// Next, the event listener should add a class name of activeto the <a>element that was clicked.
+event.target.classList.add('active');
+
+// Task 5.6
+// Set showingSubMenuto trueif the clicked <a>element's "link" object within menuLinkshas a subLinksproperty (all do, except for the "link" object for ABOUT), otherwise, set it to false.
+var clickedLink = menuLinks.find(function(link) {
+  return link.text === event.target.textContent;
+});
+showingSubMenu = clickedLink && clickedLink.subLinks ? true : false;
+});
